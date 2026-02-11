@@ -11,26 +11,23 @@
 </head>
 
 <body>
-
-  <!-- HERO -->
   <div class="background-verde reveal">
     <header>
       <div class="container">
         <nav>
-          <div class="logo">
-            <img src="images/LogoElende1.png" alt="logoelende">
-          </div>
           <ul class="ul">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Tipo de Casa</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#"><button class="btn-gradiente">Começar</button></a></li>
+            <li><a href="#">Início</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#casas">Casas</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#footer-redes">Contacto</a></li>
           </ul>
           <div class="menu-icon">
             <img id="icon-menu" src="images/menu1.png" alt="menu">
           </div>
-          <button id="theme-toggle" class="btn-gradiente"><i id="theme-icon" class="fa-solid fa-moon"></i></button>
+          <button id="theme-toggle" class="btn-gradiente">
+            <i id="theme-icon" class="fa-solid fa-moon"></i>
+          </button>
         </nav>
       </div>
     </header>
@@ -56,7 +53,7 @@
   <section class="resultados reveal">
     <div class="container">
       <div class="resultados-text">
-        Ajudando pessoas e grandes empresas com o foco no conforto.
+        Ajudando pessoas e grandes empresas com o foco no conforto e qualidade.
       </div>
       <div class="resultados-numero">
         <p><span>+50 mil</span><br>Clientes</p>
@@ -66,69 +63,177 @@
     </div>
   </section>
 
-  <!-- DIFERENÇAS -->
-  <section class="diferencias reveal">
+  <!-- SERVIÇOS / DIFERENCIAIS -->
+  <section id="servicos" class="diferencias reveal">
     <div class="container">
-      <div class="card">
-        <img src="images/medalha.png" alt="medalha">
-        <h3 class="titulo">Empresa Profissional</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, itaque...</p>
-      </div>
-      <div class="card">
-        <img src="images/time.png" alt="tempo">
-        <h3 class="titulo">Consultoria 24 horas</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, itaque...</p>
-      </div>
-      <div class="card">
-        <img src="images/carro.png" alt="entrega">
-        <h3 class="titulo">Servindo em todo o país</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, itaque...</p>
+      <h2>Nossos Diferenciais</h2>
+      <div class="diferenciais-grid">
+        <div class="diferencial-item">
+          <i class="fa-solid fa-award fa-3x"></i>
+          <h3>Excelência Profissional</h3>
+          <p>Projetos entregues com qualidade superior e cumprimento rigoroso de prazos.</p>
+        </div>
+        <div class="diferencial-item">
+          <i class="fa-solid fa-clock fa-3x"></i>
+          <h3>Atendimento 24/7</h3>
+          <p>Consultoria contínua e suporte a clientes em todas as fases do projeto.</p>
+        </div>
+        <div class="diferencial-item">
+          <i class="fa-solid fa-globe fa-3x"></i>
+          <h3>Atuação Nacional</h3>
+          <p>Projetos realizados em todo território angolano, adaptando-se às necessidades locais.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CASA -->
-  <section class="casa reveal">
+  <!-- CASAS -->
+  <section id="casas" class="casa reveal">
     <div class="container">
-      <div class="casa-img">
-        <img src="images/Ap.jpeg" alt="emy">
-      </div>
-      <div class="casa-text">
-        <h2>Construção da sua casa particular</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laborum consequatur...</p>
-        <p><b>+50 clientes felizes</b></p>
+      <h2>Construção de Casas Particulares</h2>
+      <div class="carousel construcao-carousel">
+        <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-track">
+          <div class="casa-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161f7f4f9?auto=format&fit=crop&w=600&q=60"
+              alt="Casa moderna 1">
+            <p>Projeto moderno com foco em sustentabilidade e conforto familiar.</p>
+          </div>
+          <div class="casa-card">
+            <img src="https://images.unsplash.com/photo-1580584120716-2d7b9c0d9537?auto=format&fit=crop&w=600&q=60"
+              alt="Casa moderna 2">
+            <p>Residência elegante com design contemporâneo e integração ambiental.</p>
+          </div>
+          <div class="casa-card">
+            <img src="https://images.unsplash.com/photo-1618200944907-d87d1f417c0d?auto=format&fit=crop&w=600&q=60"
+              alt="Casa moderna 3">
+            <p>Projeto exclusivo com acabamento premium e segurança garantida.</p>
+          </div>
+        </div>
+        <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </div>
   </section>
 
-  <!-- MELHORES LUGARES -->
+  <!-- PROVÍNCIAS -->
   <section class="melhores-lugares reveal">
     <div class="container">
-      <p class="azul">Escolha o seu melhor</p>
-      <h2>30 melhores lugares de Angola</h2>
-      <div class="card">
-        <div class="card-item">
-          <img src="images/home1.png" alt="casa 1">
-          <p class="local-casa">Moxico, AO</p>
-          <p class="nome-casa">beHome</p>
-          <p class="contato">927607160 <br> alexosalvadorjose2612@gmail.com</p>
-          <button>3 propriedades</button>
+      <p class="azul">Descubra cada região</p>
+      <h2>Principais províncias de Angola</h2>
+      <div class="carousel lugares-carousel">
+        <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-track">
+          <!-- Lista das 21 províncias -->
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1601582580175-f94cfc7c4eab?auto=format&fit=crop&w=500&q=60"
+              alt="Bengo">
+            <h3>Bengo</h3>
+            <p>Região com belas paisagens costeiras e projetos residenciais em crescimento.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1571048808041-cf74e57f4e62?auto=format&fit=crop&w=500&q=60"
+              alt="Benguela">
+            <h3>Benguela</h3>
+            <p>Cidades costeiras com projetos modernos de habitação e infraestrutura de qualidade.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1629398511066-8774da34f505?auto=format&fit=crop&w=500&q=60"
+              alt="Bié">
+            <h3>Bié</h3>
+            <p>Área com potencial de crescimento em habitação personalizada e conforto residencial.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1606312612952-b3cb83c164ef?auto=format&fit=crop&w=500&q=60"
+              alt="Cabinda">
+            <h3>Cabinda</h3>
+            <p>Enclave angolano com desenvolvimento urbano e oportunidades imobiliárias emergentes.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1592162874338-d01e0f5a0f3d?auto=format&fit=crop&w=500&q=60"
+              alt="Cuando Cubango">
+            <h3>Cuando Cubango</h3>
+            <p>Região vasta com potencial para construções residenciais e projetos ecológicos.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000000?auto=format&fit=crop&w=500&q=60"
+              alt="Cuanza Norte">
+            <h3>Cuanza Norte</h3>
+            <p>Áreas residenciais planejadas e expansão urbana sustentável.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000001?auto=format&fit=crop&w=500&q=60" alt="Cuanza Sul">
+            <h3>Cuanza Sul</h3>
+            <p>Região com crescimento de habitação moderna e infraestrutura de qualidade.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000002?auto=format&fit=crop&w=500&q=60" alt="Cunene">
+            <h3>Cunene</h3>
+            <p>Área com projetos residenciais adaptados ao clima local.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000003?auto=format&fit=crop&w=500&q=60" alt="Huambo">
+            <h3>Huambo</h3>
+            <p>Centro urbano com oportunidades para habitação moderna e conforto familiar.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000004?auto=format&fit=crop&w=500&q=60" alt="Huíla">
+            <h3>Huíla</h3>
+            <p>Região com forte crescimento imobiliário e casas residenciais de alto padrão.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000005?auto=format&fit=crop&w=500&q=60" alt="Luanda">
+            <h3>Luanda</h3>
+            <p>Capital de Angola, conhecida por seu desenvolvimento urbano e projetos residenciais modernos.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000006?auto=format&fit=crop&w=500&q=60"
+              alt="Lunda Norte">
+            <h3>Lunda Norte</h3>
+            <p>Área com crescimento residencial e oportunidades de habitação de qualidade.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000007?auto=format&fit=crop&w=500&q=60" alt="Lunda Sul">
+            <h3>Lunda Sul</h3>
+            <p>Região com grande potencial em projetos residenciais e infraestrutura moderna.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000008?auto=format&fit=crop&w=500&q=60" alt="Malanje">
+            <h3>Malanje</h3>
+            <p>Áreas urbanas em expansão, ideais para construções de alto padrão.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000009?auto=format&fit=crop&w=500&q=60" alt="Moxico">
+            <h3>Moxico</h3>
+            <p>Região ampla com oportunidades de residências modernas e seguras.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000010?auto=format&fit=crop&w=500&q=60" alt="Namibe">
+            <h3>Namibe</h3>
+            <p>Região costeira com projetos residenciais inovadores e adaptados ao ambiente.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000011?auto=format&fit=crop&w=500&q=60" alt="Uíge">
+            <h3>Uíge</h3>
+            <p>Região com forte crescimento habitacional e oportunidades de moradias modernas.</p>
+          </div>
+          <div class="lugar-item">
+            <img src="https://images.unsplash.com/photo-1587000000012?auto=format&fit=crop&w=500&q=60" alt="Zaire">
+            <h3>Zaire</h3>
+            <p>Área costeira com potencial em habitação moderna e infraestrutura de qualidade.</p>
+          </div>
         </div>
-        <div class="card-item">
-          <img src="images/home2.png" alt="casa 2">
-          <p class="local-casa">Huíla, AO</p>
-          <p class="nome-casa">beHome</p>
-          <p class="contato">927607160 <br> alexosalvadorjose2612@gmail.com</p>
-          <button>3 propriedades</button>
-        </div>
-        <div class="card-item">
-          <img src="images/home1.png" alt="casa 3">
-          <p class="local-casa">Luanda, AO</p>
-          <p class="nome-casa">beHome</p>
-          <p class="contato">927607160 <br> alexosalvadorjose2612@gmail.com</p>
-          <button>3 propriedades</button>
-        </div>
+        <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="sobre reveal">
+    <div class="container">
+      <h2>Sobre Mim e o Projeto</h2>
+      <p>Meu nome é Alexo José, profissional na área de <span>Ciências da Computação, e especializado em Análise de
+          Sistema, Sites, Bases de Dados e Segurança Informática</span>. Este projeto demonstra compromisso com
+        qualidade, inovação e conforto em cada construção.</p>
     </div>
   </section>
 
@@ -137,7 +242,7 @@
     <div class="container">
       <div class="box-newseletter">
         <h2>Subescreva no nosso site</h2>
-        <p>Se subescreva para continuares a receberes novidades e dicas importantes.</p>
+        <p>Se subescreva para continuares a receber novidades e dicas importantes.</p>
         <form>
           <input type="email" placeholder="Digite o seu email">
           <button>Subescrever</button>
@@ -146,26 +251,16 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer reveal">
+  <footer id="footer-redes" class="footer reveal">
     <div class="container footer-content">
       <div class="footer-col">
         <h3>Links</h3>
         <ul>
-          <li><a href="#"><i class="fa-solid fa-house"></i> Início</a></li>
-          <li><a href="#"><i class="fa-solid fa-building"></i> Tipo de Casa</a></li>
-          <li><a href="#"><i class="fa-solid fa-user"></i> Sobre</a></li>
-          <li><a href="#"><i class="fa-solid fa-briefcase"></i> Serviços</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h3>Suporte</h3>
-        <ul>
-          <li><a href="#"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
-          <li><a href="#"><i class="fa-solid fa-gears"></i> Como Funciona</a></li>
-          <li><a href="#"><i class="fa-solid fa-star"></i> Características</a></li>
-          <li><a href="#"><i class="fa-solid fa-headset"></i> Contacto</a></li>
+          <li><a href="#">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#casas">Casas</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#footer-redes">Contacto</a></li>
         </ul>
       </div>
 
@@ -179,11 +274,22 @@
       <div class="footer-col">
         <h3>Redes Sociais</h3>
         <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/AlexoJose/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/alexojose26/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/alexo-jos%C3%A9-779a0134b/"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://wa.me/244927607160" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://github.com/alexo-jose" target="_blank"><i class="fab fa-github"></i></a>
         </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Suporte</h3>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
       </div>
     </div>
 
@@ -192,7 +298,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 
 </html>

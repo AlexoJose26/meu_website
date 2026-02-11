@@ -137,7 +137,7 @@ nav {
   top: 80px;
   right: 5%;
   background: var(--verdeescuro);
-  width: 200px;
+  width: 220px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -264,6 +264,7 @@ main .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .resultados-text {
@@ -274,6 +275,7 @@ main .container {
 
 .resultados-numero {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .resultados-numero p {
@@ -286,33 +288,94 @@ main .container {
   font-weight: 700;
 }
 
-/* DIFERENÇAS */
-.diferencias .container {
+/* DIFERENCIAIS */
+.diferenciais-grid {
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.diferencias .card {
-  flex: 1;
-  padding: 30px;
-  border-radius: 15px;
+.diferencial-item {
+  flex: 1 1 250px;
   background: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   transition: 0.4s;
 }
 
-.diferencias .card:hover {
+.diferencial-item:hover {
   transform: translateY(-10px);
 }
 
-.diferencias .card img {
-  width: 60px;
-}
-
-.diferencias .titulo {
+.diferencial-item h3 {
   margin: 15px 0;
   font-weight: 600;
+}
+
+/* CARROSSEL CASAS E LUGARES */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+
+.casa-card,
+.lugar-item {
+  flex: 0 0 300px;
+  border-radius: 15px;
+  background: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s;
+}
+
+.casa-card:hover,
+.lugar-item:hover {
+  transform: translateY(-10px);
+}
+
+.casa-card img,
+.lugar-item img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--laranja);
+  border: none;
+  color: white;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s;
+}
+
+.carousel button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel .prev {
+  left: 10px;
+}
+
+.carousel .next {
+  right: 10px;
 }
 
 /* CASA */
@@ -321,16 +384,6 @@ main .container {
   align-items: center;
   gap: 40px;
   flex-wrap: wrap;
-}
-
-.casa-img img {
-  width: 100%;
-  border-radius: 15px;
-  transition: 0.5s;
-}
-
-.casa-img img:hover {
-  transform: scale(1.05);
 }
 
 .casa-text h2 {
@@ -354,32 +407,7 @@ main .container {
   margin: 20px 0 50px;
 }
 
-.melhores-lugares .card {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card-item {
-  flex: 1 1 300px;
-  background: white;
-  color: black;
-  border-radius: 20px;
-  padding: 30px;
-  transition: 0.4s;
-}
-
-.card-item:hover {
-  transform: translateY(-10px);
-}
-
-.card-item img {
-  width: 100%;
-  border-radius: 15px;
-}
-
-.card-item button {
+.lugar-item button {
   margin-top: 15px;
   padding: 10px 20px;
   border: none;
@@ -518,7 +546,6 @@ main .container {
 
 /* RESPONSIVO */
 @media (max-width:900px) {
-
   nav {
     flex-direction: row;
     justify-content: space-between;
@@ -526,9 +553,9 @@ main .container {
 
   .main-text,
   .main-img,
-  .diferencias .container,
+  .diferenciais-grid,
   .casa .container,
-  .melhores-lugares .card {
+  .carousel-track {
     flex-direction: column;
     text-align: center;
   }
@@ -567,7 +594,7 @@ main .container {
     right: 5%;
     top: 80px;
     background: var(--verdeescuro);
-    width: 200px;
+    width: 220px;
     padding: 20px;
     border-radius: 10px;
     flex-direction: column;

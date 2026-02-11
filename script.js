@@ -1,3 +1,4 @@
+
 const menuIcon = document.querySelector('.menu-icon');
 const ul = document.querySelector('.ul');
 
@@ -34,13 +35,10 @@ if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 
 toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
-  if (document.body.classList.contains("dark-mode")) {
-    themeIcon.className = "fa-solid fa-sun";
-  } else {
-    themeIcon.className = "fa-solid fa-moon";
-  }
+  themeIcon.className = document.body.classList.contains("dark-mode")
+    ? "fa-solid fa-sun"
+    : "fa-solid fa-moon";
 });
-
 
 function revealOnScroll() {
   const reveals = document.querySelectorAll(".reveal");
@@ -55,3 +53,42 @@ function revealOnScroll() {
 }
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+
+
+function initCarousel(carouselSelector) {
+  const carousel = document.querySelector(carouselSelector);
+  if (!carousel) return;
+
+  const track = carousel.querySelector('.carousel-track');
+  const items = track.children;
+  const prevBtn = carousel.querySelector('.prev');
+  const nextBtn = carousel.querySelector('.next');
+
+  let index = 0;
+
+  function updateCarousel() {
+    if (items.length === 0) return;
+    const itemWidth = items[0].offsetWidth + 20; // gap de 20px
+    const visibleItems = Math.floor(carousel.offsetWidth / itemWidth);
+    const maxIndex = items.length - visibleItems;
+    index = Math.max(0, Math.min(index, maxIndex));
+    track.style.transform = `translateX(${-index * itemWidth}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    index--;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    index++;
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', updateCarousel);
+  updateCarousel();
+}
+
+
+initCarousel('.construcao-carousel');
+initCarousel('.lugares-carousel');
