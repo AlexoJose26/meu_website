@@ -31,18 +31,28 @@ menuIcon.addEventListener('click', () => {
 // ===========================
 const toggleBtn = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
+const body = document.body;
 
-// Detecta preferência do sistema
-if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-  document.body.classList.add("dark-mode");
+// Inicializa tema baseado no localStorage ou no sistema
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+  body.classList.add("dark-mode");
   themeIcon.className = "fa-solid fa-sun";
+} else {
+  body.classList.remove("dark-mode");
+  themeIcon.className = "fa-solid fa-moon";
 }
 
+// Toggle tema ao clicar
 toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  themeIcon.className = document.body.classList.contains("dark-mode")
-    ? "fa-solid fa-sun"
-    : "fa-solid fa-moon";
+  body.classList.toggle("dark-mode");
+  if (body.classList.contains("dark-mode")) {
+    themeIcon.className = "fa-solid fa-sun";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeIcon.className = "fa-solid fa-moon";
+    localStorage.setItem("theme", "light");
+  }
 });
 
 // ===========================
@@ -56,6 +66,8 @@ function revealOnScroll() {
     const revealPoint = 100; // distância antes de revelar
     if (elementTop < windowHeight - revealPoint) {
       element.classList.add("active");
+    } else {
+      element.classList.remove("active");
     }
   });
 }
