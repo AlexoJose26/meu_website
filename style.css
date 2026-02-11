@@ -282,6 +282,7 @@ main .container {
   position: relative;
   overflow: hidden;
   width: 100%;
+  margin-top: 40px;
 }
 
 .carousel-track {
@@ -322,7 +323,8 @@ main .container {
 }
 
 .casa-card,
-.lugar-item {
+.lugar-item,
+.ajuda-card {
   background: white;
   border-radius: 15px;
   overflow: hidden;
@@ -332,29 +334,47 @@ main .container {
 }
 
 .casa-card:hover,
-.lugar-item:hover {
+.lugar-item:hover,
+.ajuda-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
 .casa-card img,
-.lugar-item img {
+.lugar-item img,
+.ajuda-card img {
   width: 100%;
   border-radius: 15px 15px 0 0;
 }
 
 .casa-card h3,
-.lugar-item h3 {
+.lugar-item h3,
+.ajuda-card h3 {
   padding: 10px 15px 0 15px;
   font-size: 18px;
   font-weight: 600;
 }
 
 .casa-card p,
-.lugar-item p {
+.lugar-item p,
+.ajuda-card p {
   padding: 10px 15px 15px 15px;
   font-size: 14px;
   color: var(--cinza);
+}
+
+/* SEÇÃO SOBRE */
+.sobre .container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.perfil-img {
+  width: 250px;
+  border-radius: 20px;
+  object-fit: cover;
 }
 
 /* FOOTER */
@@ -474,7 +494,8 @@ main .container {
   }
 
   .casa-card,
-  .lugar-item {
+  .lugar-item,
+  .ajuda-card {
     flex: 0 0 80%;
     margin: 0 auto;
   }
