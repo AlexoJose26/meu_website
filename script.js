@@ -1,12 +1,10 @@
-// ===========================
 // MENU MOBILE
-// ===========================
 const menuIcon = document.querySelector('.menu-icon');
 const ul = document.querySelector('.ul');
 
 function handleMenuDisplay() {
   if (window.innerWidth <= 900) {
-    menuIcon.style.display = 'block';
+    menuIcon.style.display = 'flex';
     ul.classList.remove('ativo');
   } else {
     menuIcon.style.display = 'none';
@@ -26,14 +24,11 @@ menuIcon.addEventListener('click', () => {
   }
 });
 
-// ===========================
 // TOGGLE TEMA CLARO/ESCURO
-// ===========================
 const toggleBtn = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
 const body = document.body;
 
-// Inicializa tema baseado no localStorage ou no sistema
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
   body.classList.add("dark-mode");
@@ -43,7 +38,6 @@ if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-s
   themeIcon.className = "fa-solid fa-moon";
 }
 
-// Toggle tema ao clicar
 toggleBtn.addEventListener("click", () => {
   body.classList.toggle("dark-mode");
   if (body.classList.contains("dark-mode")) {
@@ -55,40 +49,29 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-// ===========================
 // REVEAL AO ROLAR
-// ===========================
 function revealOnScroll() {
-  const reveals = document.querySelectorAll(".reveal");
-  reveals.forEach((element) => {
+  document.querySelectorAll(".reveal").forEach((el) => {
     const windowHeight = window.innerHeight;
-    const elementTop = element.getBoundingClientRect().top;
-    const revealPoint = 100; // distância antes de revelar
-    if (elementTop < windowHeight - revealPoint) {
-      element.classList.add("active");
-    } else {
-      element.classList.remove("active");
-    }
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) el.classList.add("active");
+    else el.classList.remove("active");
   });
 }
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
-// ===========================
 // CARROSSEL
-// ===========================
-function initCarousel(carouselSelector) {
-  const carousel = document.querySelector(carouselSelector);
+function initCarousel(selector) {
+  const carousel = document.querySelector(selector);
   if (!carousel) return;
-
   const track = carousel.querySelector('.carousel-track');
   const items = track.children;
   const prevBtn = carousel.querySelector('.prev');
   const nextBtn = carousel.querySelector('.next');
-
   let index = 0;
 
-  function updateCarousel() {
+  function update() {
     if (items.length === 0) return;
     const style = window.getComputedStyle(items[0]);
     const marginRight = parseInt(style.marginRight) || 20;
@@ -99,20 +82,11 @@ function initCarousel(carouselSelector) {
     track.style.transform = `translateX(${-index * itemWidth}px)`;
   }
 
-  prevBtn.addEventListener('click', () => {
-    index--;
-    updateCarousel();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    index++;
-    updateCarousel();
-  });
-
-  window.addEventListener('resize', updateCarousel);
-  updateCarousel();
+  prevBtn.addEventListener('click', () => { index--; update(); });
+  nextBtn.addEventListener('click', () => { index++; update(); });
+  window.addEventListener('resize', update);
+  update();
 }
 
-// Inicializa os carrosseis
 initCarousel('.construcao-carousel');
 initCarousel('.lugares-carousel');
