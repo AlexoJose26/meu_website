@@ -1,4 +1,3 @@
-// MENU MOBILE
 const menuIcon = document.querySelector('.menu-icon');
 const ul = document.querySelector('.ul');
 
@@ -16,10 +15,10 @@ window.addEventListener('resize', handleMenuDisplay);
 
 menuIcon.addEventListener('click', () => {
   ul.classList.toggle('ativo');
-  menuIcon.querySelector('img').src = ul.classList.contains('ativo') ? 'images/close1.png' : 'images/menu1.png';
+  menuIcon.querySelector('img').src = ul.classList.contains('ativo') ? 'images/close.png' : 'images/iconemenu.png';
 });
 
-// TOGGLE TEMA CLARO/ESCURO
+
 const toggleBtn = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
 const body = document.body;
@@ -44,7 +43,7 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-// REVEAL AO ROLAR
+
 function revealOnScroll() {
   document.querySelectorAll(".reveal").forEach(el => {
     const windowHeight = window.innerHeight;
@@ -56,7 +55,7 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
-// CARROSSEL DINÂMICO
+
 function initAllCarousels() {
   document.querySelectorAll('.carousel').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
