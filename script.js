@@ -4,32 +4,44 @@ const ul = document.querySelector('.ul');
 
 menuIcon.addEventListener('click', () => {
   ul.classList.toggle('ativo');
-});
 
-/* DARK MODE */
-const toggleBtn = document.getElementById("theme-toggle");
-const themeIcon = document.getElementById("theme-icon");
-
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-
-  if (document.body.classList.contains("dark-mode")) {
-    themeIcon.classList.replace("fa-moon", "fa-sun");
-    localStorage.setItem("theme", "dark");
+  const icon = menuIcon.querySelector('i');
+  if (ul.classList.contains('ativo')) {
+    icon.classList.replace('fa-bars', 'fa-xmark');
   } else {
-    themeIcon.classList.replace("fa-sun", "fa-moon");
-    localStorage.setItem("theme", "light");
+    icon.classList.replace('fa-xmark', 'fa-bars');
   }
 });
 
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
-  themeIcon.classList.replace("fa-moon", "fa-sun");
+/* DARK MODE FUNCIONAL */
+const toggleBtn = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+
+function setTheme(mode) {
+  if (mode === "dark") {
+    document.body.classList.add("dark-mode");
+    themeIcon.classList.replace("fa-moon", "fa-sun");
+  } else {
+    document.body.classList.remove("dark-mode");
+    themeIcon.classList.replace("fa-sun", "fa-moon");
+  }
 }
 
-/* CARROSSEL MELHORADO */
-document.querySelectorAll('.carousel').forEach(carousel => {
+toggleBtn.addEventListener("click", () => {
+  const isDark = document.body.classList.contains("dark-mode");
+  setTheme(isDark ? "light" : "dark");
+  localStorage.setItem("theme", isDark ? "light" : "dark");
+});
 
+// Carregar tema salvo
+if (localStorage.getItem("theme") === "dark") {
+  setTheme("dark");
+} else {
+  setTheme("light");
+}
+
+/* CARROSSEL */
+document.querySelectorAll('.carousel').forEach(carousel => {
   const track = carousel.querySelector('.carousel-track');
   const items = carousel.querySelectorAll('.item');
   const prev = carousel.querySelector('.prev');
@@ -48,15 +60,9 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     track.style.transform = `translateX(-${index * itemWidth}px)`;
   }
 
-  next.addEventListener('click', () => {
-    index++;
-    update();
-  });
-
-  prev.addEventListener('click', () => {
-    index--;
-    update();
-  });
-
+  next.addEventListener('click', () => { index++; update(); });
+  prev.addEventListener('click', () => { index--; update(); });
   window.addEventListener('resize', update);
+
+  update();
 });
