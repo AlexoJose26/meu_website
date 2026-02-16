@@ -1,3 +1,5 @@
+/* ================= MENU MOBILE ================= */
+
 const menuIcon = document.querySelector('.menu-icon');
 const ul = document.querySelector('.ul');
 
@@ -13,7 +15,8 @@ menuIcon.addEventListener('click', () => {
   }
 });
 
-/* DARK MODE */
+/* ================= DARK MODE ================= */
+
 const toggleBtn = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
 
@@ -22,13 +25,23 @@ toggleBtn.addEventListener("click", () => {
 
   if (document.body.classList.contains("dark-mode")) {
     themeIcon.classList.replace("fa-moon", "fa-sun");
+    localStorage.setItem("theme", "dark");
   } else {
     themeIcon.classList.replace("fa-sun", "fa-moon");
+    localStorage.setItem("theme", "light");
   }
 });
 
-/* CAROUSEL */
+/* Carregar tema salvo */
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+  themeIcon.classList.replace("fa-moon", "fa-sun");
+}
+
+/* ================= CAROUSEL ================= */
+
 document.querySelectorAll('.carousel').forEach(carousel => {
+
   const track = carousel.querySelector('.carousel-track');
   const items = carousel.querySelectorAll('.item');
   const prev = carousel.querySelector('.prev');
@@ -50,4 +63,6 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     if (index > 0) index--;
     update();
   });
+
+  window.addEventListener('resize', update);
 });
