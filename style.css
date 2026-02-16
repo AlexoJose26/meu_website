@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
   --primary: #ff7c37;
   --dark: #0f172a;
-  --dark-light: #1e293b;
   --light: #f8fafc;
   --gray: #64748b;
   --transition: all 0.3s ease;
@@ -37,7 +36,7 @@ section {
   padding: 80px 0;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 
 header {
   background: var(--dark);
@@ -45,17 +44,6 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: var(--transition);
-}
-
-body.dark-mode header {
-  background: #000;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .ul {
@@ -67,18 +55,24 @@ body.dark-mode header {
 .ul li a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
-  transition: var(--transition);
 }
 
-.ul li a:hover {
-  color: var(--primary);
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-actions {
   display: flex;
-  align-items: center;
   gap: 20px;
+}
+
+.menu-icon {
+  display: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
 }
 
 #theme-toggle {
@@ -89,14 +83,7 @@ body.dark-mode header {
   cursor: pointer;
 }
 
-.menu-icon {
-  display: none;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-/* ================= HERO ================= */
+/* HERO */
 
 .hero {
   height: 100vh;
@@ -104,63 +91,31 @@ body.dark-mode header {
   position: relative;
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.4));
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  color: white;
-  max-width: 700px;
-}
-
-.hero-text h1 {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  color: #e2e8f0;
 }
 
 .btn-primary {
+  display: inline-block;
+  margin-top: 20px;
   background: var(--primary);
-  padding: 12px 28px;
+  padding: 12px 25px;
   color: white;
-  border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
-  margin-right: 10px;
-  transition: var(--transition);
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
-.btn-outline {
-  border: 2px solid white;
-  padding: 12px 28px;
-  color: white;
   border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
 }
 
-.btn-outline:hover {
-  background: white;
-  color: black;
-}
-
-/* ================= SERVIÇOS ================= */
+/* SERVIÇOS */
 
 .grid {
   display: grid;
@@ -174,48 +129,42 @@ body.dark-mode header {
   padding: 40px;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition: var(--transition);
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .card {
-  background: var(--dark-light);
+  background: #1e293b;
 }
 
 .card i {
-  font-size: 32px;
+  font-size: 30px;
   margin-bottom: 20px;
   color: var(--primary);
 }
 
-/* ================= PROVÍNCIAS ================= */
+/* CARROSSEL CORRIGIDO */
 
 .carousel {
   position: relative;
-  overflow: hidden;
   margin-top: 40px;
+  overflow: hidden;
 }
 
 .carousel-track {
   display: flex;
-  gap: 20px;
   transition: transform 0.5s ease;
 }
 
 .item {
   min-width: 250px;
+  margin-right: 20px;
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .item {
-  background: var(--dark-light);
+  background: #1e293b;
 }
 
 .item img {
@@ -236,11 +185,12 @@ body.dark-mode .item {
   transform: translateY(-50%);
   background: var(--primary);
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   color: white;
   cursor: pointer;
+  z-index: 5;
 }
 
 .prev {
@@ -251,96 +201,32 @@ body.dark-mode .item {
   right: 10px;
 }
 
-/* ================= SOBRE ================= */
-
-.sobre-content {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.perfil {
-  width: 250px;
-  border-radius: 15px;
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer {
   background: var(--dark);
   color: white;
-  padding: 60px 0 20px;
-}
-
-body.dark-mode footer {
-  background: #000;
-}
-
-.footer-grid {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.footer-col h3 {
-  margin-bottom: 20px;
-}
-
-.footer-col ul {
-  list-style: none;
-}
-
-.footer-col ul li {
-  margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-col ul li a:hover {
-  color: var(--primary);
-}
-
-.social-icons {
-  display: flex;
-  gap: 10px;
-}
-
-.social-icons a {
-  width: 35px;
-  height: 35px;
-  background: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: white;
+  padding: 50px 0 20px;
+  text-align: center;
 }
 
 .footer-bottom {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 14px;
+  margin-top: 20px;
   color: var(--gray);
 }
 
-/* ================= RESPONSIVO ================= */
+/* RESPONSIVO */
 
-@media (max-width: 900px) {
+@media(max-width:900px) {
 
   .ul {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 80px;
     right: 5%;
+    top: 80px;
     background: var(--dark);
     padding: 20px;
-    border-radius: 10px;
   }
 
   .ul.ativo {
@@ -351,12 +237,4 @@ body.dark-mode footer {
     display: block;
   }
 
-  .hero-text h1 {
-    font-size: 2.2rem;
-  }
-
-  .sobre-content {
-    flex-direction: column;
-    text-align: center;
-  }
 }

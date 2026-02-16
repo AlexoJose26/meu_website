@@ -1,22 +1,12 @@
-/* ================= MENU MOBILE ================= */
-
+/* MENU MOBILE */
 const menuIcon = document.querySelector('.menu-icon');
 const ul = document.querySelector('.ul');
 
 menuIcon.addEventListener('click', () => {
   ul.classList.toggle('ativo');
-
-  const icon = menuIcon.querySelector('i');
-
-  if (ul.classList.contains('ativo')) {
-    icon.classList.replace('fa-bars', 'fa-xmark');
-  } else {
-    icon.classList.replace('fa-xmark', 'fa-bars');
-  }
 });
 
-/* ================= DARK MODE ================= */
-
+/* DARK MODE */
 const toggleBtn = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
 
@@ -32,14 +22,12 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-/* Carregar tema salvo */
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
   themeIcon.classList.replace("fa-moon", "fa-sun");
 }
 
-/* ================= CAROUSEL ================= */
-
+/* CARROSSEL MELHORADO */
 document.querySelectorAll('.carousel').forEach(carousel => {
 
   const track = carousel.querySelector('.carousel-track');
@@ -50,17 +38,23 @@ document.querySelectorAll('.carousel').forEach(carousel => {
   let index = 0;
 
   function update() {
-    const width = items[0].offsetWidth + 20;
-    track.style.transform = `translateX(${-index * width}px)`;
+    const itemWidth = items[0].offsetWidth + 20;
+    const visibleWidth = carousel.offsetWidth;
+    const maxIndex = Math.max(0, items.length - Math.floor(visibleWidth / itemWidth));
+
+    if(index > maxIndex) index = maxIndex;
+    if(index < 0) index = 0;
+
+    track.style.transform = `translateX(-${index * itemWidth}px)`;
   }
 
   next.addEventListener('click', () => {
-    if (index < items.length - 1) index++;
+    index++;
     update();
   });
 
   prev.addEventListener('click', () => {
-    if (index > 0) index--;
+    index--;
     update();
   });
 
